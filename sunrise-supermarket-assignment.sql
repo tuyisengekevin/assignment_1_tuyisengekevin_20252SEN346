@@ -2,8 +2,6 @@
 -- SUNRISE SUPERMARKET - ASSIGNMENT ONE
 
 -- 1. CREATE TABLES
--- ============================================================
-
 CREATE TABLE customers (
     customer_id INT PRIMARY KEY,
     customer_name VARCHAR(100),
@@ -34,10 +32,7 @@ CREATE TABLE order_items (
     quantity INT
 );
 
-
--- ============================================================
 -- 2. INSERT CUSTOMERS
--- ============================================================
 
 INSERT INTO customers
 (customer_id, customer_name, email, city)
@@ -48,10 +43,7 @@ VALUES
 (4, 'David Habimana', 'david@example.com', 'Rubavu'),
 (5, 'Eva Ingabire', 'eva@example.com', 'Kigali');
 
-
--- ============================================================
 -- 3. INSERT PRODUCTS
--- ============================================================
 
 INSERT INTO products
 (product_id, product_name, category, price)
@@ -65,10 +57,7 @@ VALUES
 (107, 'Dishwashing Liquid', 'Household', 3000),
 (108, 'Biscuits Pack', 'Snacks', 2500);
 
-
--- ============================================================
 -- 4. INSERT ORDERS
--- ============================================================
 
 INSERT INTO orders
 (order_id, customer_id, order_date)
@@ -89,10 +78,7 @@ VALUES
 (1014, 2, '2026-03-23'),
 (1015, 1, '2026-03-28');
 
-
--- ============================================================
 -- 5. INSERT ORDER ITEMS
--- ============================================================
 
 INSERT INTO order_items
 (order_item_id, order_id, product_id, quantity)
@@ -142,12 +128,9 @@ VALUES
 (29, 1015, 101, 1),
 (30, 1015, 105, 2);
 
-
--- ============================================================
 -- QUESTION 1
 -- List every order with customer's name, city and order date
 -- INNER JOIN: orders + customers
--- ============================================================
 
 SELECT
     o.order_id,
@@ -159,13 +142,10 @@ INNER JOIN customers c
     ON o.customer_id = c.customer_id
 ORDER BY o.order_date;
 
-
--- ============================================================
 -- QUESTION 2
 -- List every order item with product name, category,
 -- price and quantity ordered
 -- JOIN: order_items + products
--- ============================================================
 
 SELECT
     oi.order_item_id,
@@ -179,13 +159,10 @@ INNER JOIN products p
     ON oi.product_id = p.product_id
 ORDER BY oi.order_id;
 
-
--- ============================================================
 -- QUESTION 3
 -- List ALL customers and their orders,
 -- including customers who have never placed an order
 -- LEFT JOIN
--- ============================================================
 
 SELECT
     c.customer_id,
@@ -198,13 +175,10 @@ LEFT JOIN orders o
     ON c.customer_id = o.customer_id
 ORDER BY c.customer_id;
 
-
--- ============================================================
 -- QUESTION 4
 -- Calculate each customer's total amount spent
 -- and return customers who spent ABOVE the average.
 -- CTE
--- ============================================================
 
 WITH customer_totals AS (
 
@@ -241,14 +215,10 @@ WHERE total_spent >
        FROM customer_totals)
 
 ORDER BY total_spent DESC;
-
-
--- ============================================================
 -- QUESTION 5
 -- Rank customers by total amount spent,
 -- highest first.
 -- WINDOW FUNCTION: RANK()
--- ============================================================
 
 WITH customer_totals AS (
 
@@ -285,13 +255,9 @@ SELECT
 FROM customer_totals
 
 ORDER BY spending_rank;
-
-
--- ============================================================
 -- QUESTION 6
 -- Number each customer's orders in the order they were placed.
 -- WINDOW FUNCTION: ROW_NUMBER()
--- ============================================================
 
 SELECT
     o.order_id,
@@ -311,13 +277,9 @@ INNER JOIN customers c
 ORDER BY
     c.customer_name,
     customer_order_number;
-
-
--- ============================================================
 -- QUESTION 7
 -- Show a running total of revenue over time.
 -- WINDOW FUNCTION: SUM() OVER()
--- ============================================================
 
 WITH daily_revenue AS (
 
@@ -349,14 +311,10 @@ SELECT
 FROM daily_revenue
 
 ORDER BY order_date;
-
-
--- ============================================================
 -- QUESTION 8
 -- For customers with more than one order,
 -- show the number of days between current and previous order.
 -- WINDOW FUNCTION: LAG()
--- ============================================================
 
 WITH customer_orders AS (
 
