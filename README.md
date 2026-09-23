@@ -1,5 +1,4 @@
- Sunrise Supermarket 
-database used: postgreSQL 
+# Sunrise Supermarket — PL/SQL Assignment One
 ## Student Information
 
 **Student Name:** TUYISENGE Kevin
@@ -106,7 +105,7 @@ The database contains:
 * **8 products**
 * **4 categories**
 * **15 orders**
-* **30 order items**
+* **25 order items**
 * Orders distributed across January, February and March 2026
 
 The four product categories are:
@@ -191,7 +190,7 @@ This allows management to see the products purchased and the quantity ordered.
 
 ### Result Screenshot
 
-![Question 1 Result](2.png)
+![Question 2 Result](2.png)
 
 ---
 
@@ -228,7 +227,7 @@ This allows management to identify customers who have registered but have not pu
 
 ### Result Screenshot
 
-![Question 1 Result](3.png)
+![Question 3 Result](3.png)
 
 ---
 
@@ -300,7 +299,7 @@ Management can identify customers who spend more than the average customer.
 
 ### Result Screenshot
 
-![Question 1 Result](4.png)
+![Question 4 Result](4.png)
 
 ---
 
@@ -364,7 +363,7 @@ Management can compare customer spending and identify customers with higher purc
 
 ### Result Screenshot
 
-![Question 1 Result](5.png)
+![Question 5 Result](5.png)
 ---
 
 # 9. Question 6 — ROW_NUMBER()
@@ -417,7 +416,7 @@ Management can see the sequence of purchases made by each customer.
 
 ### Result Screenshot
 
-![Question 1 Result](6.png)
+![Question 6 Result](6.png)
 
 ---
 
@@ -493,7 +492,7 @@ Management can see how total revenue accumulates over time and observe sales tre
 
 ### Result Screenshot
 
-![Question 1 Result](7.png)
+![Question 7 Result](7.png)
 
 ---
 
@@ -570,7 +569,7 @@ Management can understand how frequently repeat customers return to the supermar
 
 ### Result Screenshot
 
-![Question 1 Result](8.png)
+![Question 8 Result](8.png)
 ---
 
 # 12. SQL Concepts Used
@@ -699,4 +698,14 @@ LAG()
 with `PARTITION BY` and `ORDER BY` where required.
 
 ---
+# 15. How to Run
 
+1. Install and open PostgreSQL and pgAdmin 4.
+2. Create a PostgreSQL database.
+3. Open the `assignment1.sql` file in pgAdmin 4.
+4. Run the table creation statements.
+5. Run the INSERT statements to populate the tables.
+6. Execute each question query separately to view the results.
+7. The screenshots in this README show the results of each query.
+
+**DBMS:** PostgreSQL
